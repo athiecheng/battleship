@@ -25,25 +25,7 @@ export function Square(props) {
                 y: props.y
             }
         )} id="square" class={borderColor}>
-        {/* {symbol} */}
     </div>);
-
-    // handleClick(){
-    //     if (symbol === '0'){
-    //         dispatch({
-    //             type: 'boardClick',
-    //             x: props.x,
-    //             y: props.y,
-    //         })
-            
-    //     } else{
-    //         dispatch({
-    //             type: 'noBoardClick',
-    //             x: props.x,
-    //             y: props.y,
-    //         })
-    //     }
-    // }
 }
 
 
