@@ -1,0 +1,17 @@
+.para{
+    display: flex;
+    justify-content: left;
+    
+    height:100vh; 
+    color:blue;
+
+}
+
+.rules{
+    color:cadetblue;
+
+}
+
+.img{
+    border-radius: 8px;
+}
