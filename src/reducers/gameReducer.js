@@ -52,8 +52,8 @@ export default function gameReducer(state, action) {
     if (state === undefined) {
         return generateGameBoard()
     }
-
-    if (action.type === 'boardClick' || action.type === 'noBoardClick') {
+    
+    if (action.type === 'boardClick') {
         const value = state.boxMap[action.x][action.y];
         if (value === 'X') {
             state.boxMap[action.x][action.y] = '0';
@@ -65,5 +65,13 @@ export default function gameReducer(state, action) {
         }
         return { ...state };
     }
-    return state;
+    if (action.type === 'resetButton') {
+        for (var i = 0; i < state.boxMap.length; i++) {
+            for( var j = 0; j < state.boxMap[0].length; j++){
+                state.boxMap[i][j] = ''
+            }
+        }
+        return {...state}
+    }
+    return state; 
 }
