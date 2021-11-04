@@ -37,6 +37,8 @@ export default function Board() {
             <h1>{boardState.blackBox}</h1>
             <div id="board">
             {playerBoardComponent}
+            </div>
+            <div>
             {robotBoardComponent}
             </div>
 
@@ -45,3 +47,4 @@ export default function Board() {
         </div>
     )
 }
+
