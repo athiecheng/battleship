@@ -14,7 +14,7 @@ export function Square(props) {
     } else if (symbol === '') {
         borderColor = 'blackBorder';
     }
-
+    console.log(borderColor);
     const dispatch = useDispatch();
 
     return (
