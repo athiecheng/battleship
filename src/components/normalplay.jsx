@@ -6,27 +6,40 @@ import { useSelector } from 'react-redux';
 
 export default function Board() {
     const boardState = useSelector((state) => state.game)
+    const robotBoardState = useSelector((state) => state.robot)
     // const [boardState, setBoard] = useState([
     //     ['','X',''],
     //     ['','',''],
     //     ['X','','0'],
     // ])
 
-    const boardComponent = [];
+    const playerBoardComponent = [];
 
     for (let i = 0; i < boardState.boxMap.length; i++) {
         let row = boardState.boxMap[i];
         for (let j = 0; j < row.length; j++) {
-            boardComponent.push((<Square symbol={boardState.boxMap[i][j]} x={i} y={j} />))
+            playerBoardComponent.push((<Square symbol={boardState.boxMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
     }
 
+    const robotBoardComponent = [];
+    for (let i = 0; i < robotBoardState.boxMap.length; i++) {
+        let row = robotBoardState.boxMap[i];
+        for (let j = 0; j < row.length; j++) {
+            robotBoardComponent.push((<Square symbol={robotBoardState.boxMap[i][j]} x={i} y={j} />))
+            // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
+        }
+    }
+    
     return (
         <div className = "play">
             <h1>{boardState.blackBox}</h1>
             <div id="board">
-            {boardComponent}
+            {playerBoardComponent}
+            </div>
+            <div>
+            {robotBoardComponent}
             </div>
 
             {/* <ResetButton text = "reset" /> */}
@@ -34,3 +47,4 @@ export default function Board() {
         </div>
     )
 }
+
