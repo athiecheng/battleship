@@ -22,46 +22,80 @@ function getRandomInt(max) {
 }
 
 function generateGameBoard() {
-    console.log(defaultState);
-    
+    const newstate = defaultState
+    console.log("start" +newstate);
     for (let i = 2; i < 6; i++) {
-        let dir = getRandomInt(2);
-        let startx = getRandomInt(5);
-        let starty = getRandomInt(5);
-        for (let j = 0; j < i; j++) {
-            if (dir === 0) {
-                defaultState.boxMap[startx][starty] = "X";
-                startx +=1;
-            }
-            else{
-                console.log("hori"+ i + j)
-                defaultState.boxMap[startx][starty] = "X";
-                starty +=1;
-            }
+        let allclear = false;
+        while (allclear == false){
+            
+            let dir = getRandomInt(2);
+            let startx = getRandomInt(10);
+            let starty = getRandomInt(10);
+            let count = 0;
+            while (startx<=9 && starty<=9 && newstate.boxMap[startx][starty] != "X"   ){
+                if (dir === 0) {
+                    startx +=1;
+                }
+                else{
+                    starty +=1;
+                }
+                count += 1;
+                if (count == i){
+                    for (let j = 0;j<i;j++){
+                        if (dir === 0){
+                            startx -=1
+                            console.log(startx+" row "+starty);
+                            newstate.boxMap[startx][starty] = "X"
+                            
+                        }
+                        else{
+                            starty -=1
+                            console.log(startx+" col "+starty);
+                            newstate.boxMap[startx][starty] = "X"
+                            
+                        }
+                        
+                    }
+                    allclear = true;
+                    if (dir === 0){
+                        startx +=1
+                    }
+                    else{
+                        starty +=1
+                    }
+                    
+                }
+                
 
+        }
+        
 
         }
         console.log("ship of "+ i)
+        
 
     }
-    return defaultState;
+    return newstate;
 }
 
-export default function roborReducer(state, action) {
+export default function robotReducer(state, action) {
     if (state === undefined) {
+        console.log("running");
         return generateGameBoard()
     }
-    
-    if (action.type === 'boardClick') {
+
+    if (action.type === 'robotAction') {
         const value = state.boxMap[action.x][action.y];
         if (value === 'X') {
-            state.boxMap[action.x][action.y] = '0';
-            state.blackBox -= 1
-        } else {
-            state.boxMap[action.x][action.y] = 'X';
+            state.boxMap[action.x][action.y] = 'B';
             state.blackBox += 1
-
+        } else if (value === ''){
+            state.boxMap[action.x][action.y] = 'R';
+            state.blackBox -= 1
         }
+            
+
+        
         return { ...state };
     }
     if (action.type === 'resetButton') {

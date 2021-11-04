@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Square } from "./Square"
+import { Square2 } from './Square2';
 // import { ResetButton } from "./ResetButton"
 import './Board.css'
 import { useSelector } from 'react-redux';
@@ -27,7 +28,7 @@ export default function Board() {
     for (let i = 0; i < robotBoardState.boxMap.length; i++) {
         let row = robotBoardState.boxMap[i];
         for (let j = 0; j < row.length; j++) {
-            robotBoardComponent.push((<Square symbol={robotBoardState.boxMap[i][j]} x={i} y={j} />))
+            robotBoardComponent.push((<Square2 symbol={robotBoardState.boxMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
     }
@@ -38,7 +39,8 @@ export default function Board() {
             <div id="board">
             {playerBoardComponent}
             </div>
-            <div>
+            <h2>divide the two</h2>
+            <div id = "board">
             {robotBoardComponent}
             </div>
 
