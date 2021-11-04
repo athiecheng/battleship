@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Square } from "./Square"
-import { ResetButton } from "./ResetButton"
+// import { ResetButton } from "./ResetButton"
 import './Board.css'
 import { useSelector } from 'react-redux';
 
@@ -29,7 +29,7 @@ export default function Board() {
             {boardComponent}
             </div>
 
-            <ResetButton text = "reset" />
+            {/* <ResetButton text = "reset" /> */}
          
         </div>
     )

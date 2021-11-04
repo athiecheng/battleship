@@ -9,12 +9,18 @@ export function Square(props) {
     
     // const [state, setState] = useState(props.symbol);
     let borderColor = 'purpleBorder';
-    if (symbol === '0') {
-        borderColor = 'blueBorder';
-    } else if (symbol === '') {
-        borderColor = 'blackBorder';
+    
+    
+    if (symbol === 'X') {
+        borderColor = 'blackfill';
+    } 
+    else if (symbol === 'B') {
+        borderColor = 'bluefill';
     }
-    console.log(borderColor);
+    else if (symbol === 'R') {
+        borderColor = 'redfill';}
+    
+    
     const dispatch = useDispatch();
 
     return (
