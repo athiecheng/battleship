@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Square } from "./Square"
 import { Square2 } from './Square2';
-// import { ResetButton } from "./ResetButton"
+import { ResetButton } from "./ResetButton"
 import './Board.css'
 import { useSelector } from 'react-redux';
 
@@ -44,7 +44,7 @@ export default function Board() {
             {robotBoardComponent}
             </div>
 
-            {/* <ResetButton text = "reset" /> */}
+            <ResetButton text = "reset" />
          
         </div>
     )
