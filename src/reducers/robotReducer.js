@@ -81,6 +81,15 @@ function generateGameBoard() {
 export default function robotReducer(state, action) {
     if (state === undefined) {
         console.log("running");
+        return defaultState
+    }
+
+    if (action.type === 'playGame'){
+        for (var i = 0; i < state.boxMap.length; i++) {
+            for( var j = 0; j < state.boxMap[0].length; j++){
+                state.boxMap[i][j] = ''
+            }
+        }
         return generateGameBoard()
     }
 
@@ -104,7 +113,7 @@ export default function robotReducer(state, action) {
                 state.boxMap[i][j] = ''
             }
         }
-        return {...state}
+        return generateGameBoard()
     }
     return state; 
 }
