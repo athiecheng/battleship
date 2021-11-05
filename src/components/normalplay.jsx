@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Square } from "./Square"
 import { Square2 } from './Square2';
-import { ResetButton } from "./ResetButton"
-import './Board.css'
+import  ResetButton  from './ResetButton';
+import PlayButton from './playButton';
+import './Board.css';
 import { useSelector } from 'react-redux';
 
 export default function Board() {
@@ -35,15 +36,16 @@ export default function Board() {
     
     return (
         <div className = "play">
+            
             <h1>{boardState.blackBox}</h1>
             <div id="board">
             {playerBoardComponent}
             </div>
             <h2>divide the two</h2>
+            <PlayButton text = "play game" />
             <div id = "board">
             {robotBoardComponent}
             </div>
-
             <ResetButton text = "reset" />
          
         </div>

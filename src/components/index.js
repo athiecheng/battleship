@@ -4,5 +4,5 @@ export {default as Play} from "./Board";
 export {default as Rules} from "./Rules";
 export { default as Normalplay} from "./normalplay";
 export { default as Freeplay} from "./freeplay";
-export { default as ResetButton} from "./ResetButton";
-
+export {default as ResetButton} from "./ResetButton";
+export {default as PlayButton} from "./playButton";

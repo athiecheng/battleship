@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 
-function ResetButton(props){
+function PlayButton(props){
     const {text} = props;
 
     const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function ResetButton(props){
             <button onClick ={
             ()=> dispatch(
                 {
-                    type: 'resetButton',
+                    type: 'playGame',
                 }
             )
             }>
@@ -22,5 +22,5 @@ function ResetButton(props){
     )
 }
 
-export default ResetButton;
+export default PlayButton;
 
