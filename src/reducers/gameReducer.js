@@ -1,5 +1,5 @@
 const defaultState = {
-    blackBox: 0,
+    shipleft: 14,
     boxMap: [
         ['', '', '', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', '', '', ''],
@@ -32,7 +32,7 @@ function generateGameBoard() {
             let startx = getRandomInt(10);
             let starty = getRandomInt(10);
             let count = 0;
-            while (startx<=9 && starty<=9 && newstate.boxMap[startx][starty] != "X"   ){
+            while (startx<=9 && starty<=9 && newstate.boxMap[startx][starty] !== "X"   ){
                 if (dir === 0) {
                     startx +=1;
                 }
@@ -88,11 +88,12 @@ export default function gameReducer(state, action) {
         const value = state.boxMap[action.x][action.y];
         if (value === 'X') {
             state.boxMap[action.x][action.y] = 'B';
-            state.blackBox += 1
+            state.shipleft -= 1
         } else if (value === ''){
             state.boxMap[action.x][action.y] = 'R';
-            state.blackBox -= 1
+            
         }
+        if (state.shipleft)
             
 
         

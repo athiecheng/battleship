@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Square } from "./Square"
-import { Square2 } from './Square2';
+import { Square2 } from './square2';
 // import { ResetButton } from "./ResetButton"
 import './Board.css'
 import { useSelector } from 'react-redux';

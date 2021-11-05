@@ -11,10 +11,7 @@ export function Square2(props) {
     let borderColor = 'purpleBorder';
     
     
-    if (symbol === 'X') {
-        borderColor = 'blackfill';
-    } 
-    else if (symbol === 'B') {
+    if (symbol === 'B') {
         borderColor = 'bluefill';
     }
     else if (symbol === 'R') {
