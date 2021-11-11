@@ -21,6 +21,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
+
+
 function generateGameBoard() {
     const newstate = defaultState
     console.log("start" +newstate);
@@ -100,9 +102,10 @@ export default function gameReducer(state, action) {
             state.shipleft -= 1
         } else if (value === ''){
             state.boxMap[action.x][action.y] = 'R';
+        }
+        if (state.shipleft === 0){
             
         }
-        if (state.shipleft)
             
 
         
