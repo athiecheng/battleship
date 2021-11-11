@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 export default function Board() {
     const boardState = useSelector((state) => state.game)
-    const robotBoardState = useSelector((state) => state.robot)
+    // const robotBoardState = useSelector((state) => state.robot)
     // const [boardState, setBoard] = useState([
     //     ['','X',''],
     //     ['','',''],
@@ -26,10 +26,10 @@ export default function Board() {
     }
 
     const robotBoardComponent = [];
-    for (let i = 0; i < robotBoardState.boxMap.length; i++) {
-        let row = robotBoardState.boxMap[i];
+    for (let i = 0; i < boardState.robotMap.length; i++) {
+        let row = boardState.robotMap[i];
         for (let j = 0; j < row.length; j++) {
-            robotBoardComponent.push((<Square2 symbol={robotBoardState.boxMap[i][j]} x={i} y={j} />))
+            robotBoardComponent.push((<Square2 symbol={boardState.robotMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
     }
