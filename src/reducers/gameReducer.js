@@ -174,20 +174,20 @@ export default function gameReducer(state, action) {
                     state.robotMap[action.x][action.y] = 'R';
                 }
                 if (state.robot_shipleft !== 0){
-                    let robotx= getRandomInt(10)
-                    let roboty= getRandomInt(10)
+                    let robotx= getRandomInt(9)
+                    let roboty= getRandomInt(9)
                     while (state.boxMap[robotx][roboty] === 'B' || state.boxMap[robotx][roboty] === 'R'){
-                        robotx= getRandomInt(10)
-                        roboty= getRandomInt(10)
+                        robotx= getRandomInt(9)
+                        roboty= getRandomInt(9)
                     }
                     console.log(robotx,roboty)
-                    const rob_value = state.robotMap[robotx][roboty]
+                    const rob_value = state.boxMap[robotx][roboty]
                     
                     if (rob_value === 'X') {
                         state.boxMap[robotx][roboty] = 'B';
                         state.human_shipleft -= 1
                     } else if (rob_value === ''){
-                        state.boxMap[action.x][action.y] = 'R';
+                        state.boxMap[robotx][roboty] = 'R';
                         }
                 }
             }

@@ -8,14 +8,14 @@ export function Square2(props) {
     
     
     // const [state, setState] = useState(props.symbol);
-    let borderColor = 'purpleBorder';
+    let borderColor2 = 'purpleBorder';
     
     
     if (symbol === 'B') {
-        borderColor = 'bluefill';
+        borderColor2 = 'bluefill';
     }
     else if (symbol === 'R') {
-        borderColor = 'redfill';}
+        borderColor2 = 'redfill';}
     
     
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export function Square2(props) {
                 x: props.x,
                 y: props.y
             }
-        )} id="square" class={borderColor}>
+        )} id="square" class={borderColor2}>
     </div>);
 }
 
