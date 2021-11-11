@@ -27,6 +27,7 @@ const defaultState = {
         ['', '', '', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', '', '', '']
     ],
+    normalPlay: true
 
 };
 
@@ -85,8 +86,6 @@ function generateGameBoard() {
                 
 
         }
-        
-
         }
         console.log("ship of "+ i)
         
@@ -149,13 +148,13 @@ function generateGameBoard() {
 export default function gameReducer(state, action) {
     if (state === undefined) {
         console.log("running");
-        return defaultState
-    }
-
-    if (action.type === 'playGame'){
-
         return generateGameBoard()
     }
+
+    // if (action.type === 'playGame'){
+
+    //     return generateGameBoard()
+    // }
 
     // if(action.type === 'normalPlay') {
     //     generateGameBoard(boxMap)
@@ -163,7 +162,7 @@ export default function gameReducer(state, action) {
     // }
    
     
-    // if (action.type === Normalplay){
+    // if (action.type === 'Normalplay'){
         if (action.type === 'boardClick') {
             const value = state.robotMap[action.x][action.y];
             if (value === 'X' || value ===''){
@@ -173,12 +172,12 @@ export default function gameReducer(state, action) {
                 } else if (value === ''){
                     state.robotMap[action.x][action.y] = 'R';
                 }
-                if (state.robot_shipleft !== 0){
-                    let robotx= getRandomInt(10)
-                    let roboty= getRandomInt(10)
+                if (state.robot_shipleft !== 0 && state.normalPlay === true){
+                    let robotx= getRandomInt(9)
+                    let roboty= getRandomInt(9)
                     while (state.boxMap[robotx][roboty] === 'B' || state.boxMap[robotx][roboty] === 'R'){
-                        robotx= getRandomInt(10)
-                        roboty= getRandomInt(10)
+                        robotx= getRandomInt(9)
+                        roboty= getRandomInt(9)
                     }
                     console.log(robotx,roboty)
                     const rob_value = state.robotMap[robotx][roboty]
@@ -187,12 +186,10 @@ export default function gameReducer(state, action) {
                         state.boxMap[robotx][roboty] = 'B';
                         state.human_shipleft -= 1
                     } else if (rob_value === ''){
-                        state.boxMap[action.x][action.y] = 'R';
+                        state.boxMap[robotx][roboty] = 'R';
                         }
                 }
             }
-            
-            
             return { ...state };
         }
     // }

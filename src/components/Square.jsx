@@ -20,8 +20,6 @@ export function Square(props) {
     else if (symbol === 'R') {
         borderColor = 'redfill';}
     
-    
-    const dispatch = useDispatch();
 
     return (
         <div  id="square" class={borderColor}>
