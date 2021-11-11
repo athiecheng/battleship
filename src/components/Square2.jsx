@@ -23,7 +23,7 @@ export function Square2(props) {
     return (
         <div onClick={() => dispatch(
             {
-                type: 'robotAction',
+                type: 'boardClick',
                 x: props.x,
                 y: props.y
             }

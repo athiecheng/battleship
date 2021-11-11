@@ -15,7 +15,7 @@ export default function Board() {
     for (let i = 0; i < boardState.boxMap.length; i++) {
         let row = boardState.boxMap[i];
         for (let j = 0; j < row.length; j++) {
-            playerBoardComponent.push((<Square symbol={boardState.boxMap[i][j]} x={i} y={j} />))
+            playerBoardComponent.push((<Square2 symbol={boardState.boxMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.robot_shipleft=== 0){
@@ -27,7 +27,7 @@ export default function Board() {
     for (let i = 0; i < boardState.robotMap.length; i++) {
         let row = boardState.robotMap[i];
         for (let j = 0; j < row.length; j++) {
-            robotBoardComponent.push((<Square2 symbol={boardState.robotMap[i][j]} x={i} y={j} />))
+            robotBoardComponent.push((<Square symbol={boardState.robotMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.human_shipleft=== 0){
@@ -46,7 +46,7 @@ export default function Board() {
             </div>
             <h2>divide the two</h2>
             <PlayButton text = "play game" />
-            <div id = "board">
+            <div id = "board" >
             {robotBoardComponent}
             
             {boardState.robot_shipleft + "robotshipleft"}

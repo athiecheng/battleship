@@ -24,13 +24,7 @@ export function Square(props) {
     const dispatch = useDispatch();
 
     return (
-        <div onClick={() => dispatch(
-            {
-                type: 'boardClick',
-                x: props.x,
-                y: props.y
-            }
-        )} id="square" class={borderColor}>
+        <div  id="square" class={borderColor}>
     </div>);
 }
 

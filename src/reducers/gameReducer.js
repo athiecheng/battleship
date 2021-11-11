@@ -173,7 +173,7 @@ export default function gameReducer(state, action) {
                 } else if (value === ''){
                     state.robotMap[action.x][action.y] = 'R';
                 }
-                if (state.robot_shipleft != 0){
+                if (state.robot_shipleft !== 0){
                     let robotx= getRandomInt(10)
                     let roboty= getRandomInt(10)
                     while (state.boxMap[robotx][roboty] === 'B' || state.boxMap[robotx][roboty] === 'R'){
@@ -184,9 +184,9 @@ export default function gameReducer(state, action) {
                     const rob_value = state.robotMap[robotx][roboty]
                     
                     if (rob_value === 'X') {
-                        state.boxMap[robotx][action.y] = 'B';
+                        state.boxMap[robotx][roboty] = 'B';
                         state.human_shipleft -= 1
-                    } else if (value === ''){
+                    } else if (rob_value === ''){
                         state.boxMap[action.x][action.y] = 'R';
                         }
                 }
