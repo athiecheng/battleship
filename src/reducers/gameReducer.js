@@ -177,6 +177,11 @@ export default function gameReducer(state, action) {
                 state.boxMap[i][j] = ''
             }
         }
+        for (var i = 0; i < state.robotMap.length; i++) {
+            for( var j = 0; j < state.robotMap[0].length; j++){
+                state.robotMap[i][j] = ''
+            }
+        }
         return generateGameBoard()
     }
     return state; 
