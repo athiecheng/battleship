@@ -1,5 +1,8 @@
+import { Normalplay } from "../components";
+
 const defaultState = {
-    shipleft: 14,
+    human_shipleft: 14,
+    robot_shipleft:14,
     boxMap: [
         ['', '', '', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', '', '', ''],
@@ -32,6 +35,8 @@ function getRandomInt(max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max + 1));
 }
+
+
 
 function generateGameBoard() {
     const newstate = defaultState
@@ -156,22 +161,42 @@ export default function gameReducer(state, action) {
     //     generateGameBoard(boxMap)
     //     return generateGameBoard(robotMap)
     // }
-
-    if (action.type === 'boardClick') {
-        const value = state.boxMap[action.x][action.y];
-        if (value === 'X') {
-            state.boxMap[action.x][action.y] = 'B';
-            state.shipleft -= 1
-        } else if (value === ''){
-            state.boxMap[action.x][action.y] = 'R';
+   
+    
+    // if (action.type === Normalplay){
+        if (action.type === 'boardClick') {
+            const value = state.robotMap[action.x][action.y];
+            if (value === 'X' || value ===''){
+                if (value === 'X') {
+                    state.robotMap[action.x][action.y] = 'B';
+                    state.robot_shipleft -= 1
+                } else if (value === ''){
+                    state.robotMap[action.x][action.y] = 'R';
+                }
+                if (state.robot_shipleft != 0){
+                    let robotx= getRandomInt(10)
+                    let roboty= getRandomInt(10)
+                    while (state.boxMap[robotx][roboty] === 'B' || state.boxMap[robotx][roboty] === 'R'){
+                        robotx= getRandomInt(10)
+                        roboty= getRandomInt(10)
+                    }
+                    console.log(robotx,roboty)
+                    const rob_value = state.robotMap[robotx][roboty]
+                    
+                    if (rob_value === 'X') {
+                        state.boxMap[robotx][action.y] = 'B';
+                        state.human_shipleft -= 1
+                    } else if (value === ''){
+                        state.boxMap[action.x][action.y] = 'R';
+                        }
+                }
+            }
             
+            
+            return { ...state };
         }
-        if (state.shipleft)
-            
-
-        
-        return { ...state };
-    }
+    // }
+    
     if (action.type === 'resetButton') {
         for (var i = 0; i < state.boxMap.length; i++) {
             for( var j = 0; j < state.boxMap[0].length; j++){
