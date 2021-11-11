@@ -180,7 +180,7 @@ export default function gameReducer(state, action) {
                         roboty= getRandomInt(9)
                     }
                     console.log(robotx,roboty)
-                    const rob_value = state.robotMap[robotx][roboty]
+                    const rob_value = state.boxMap[robotx][roboty]
                     
                     if (rob_value === 'X') {
                         state.boxMap[robotx][roboty] = 'B';

@@ -8,21 +8,21 @@ export function Square(props) {
     
     
     // const [state, setState] = useState(props.symbol);
-    let borderColor = 'purpleBorder';
+    let borderColor1 = 'purpleBorder';
     
     
     if (symbol === 'X') {
-        borderColor = 'blackfill';
+        borderColor1 = 'blackfill';
     } 
     else if (symbol === 'B') {
-        borderColor = 'bluefill';
+        borderColor1 = 'bluefill';
     }
     else if (symbol === 'R') {
-        borderColor = 'redfill';}
+        borderColor1 = 'redfill';}
     
 
     return (
-        <div  id="square" class={borderColor}>
+        <div  id="square" class={borderColor1}>
     </div>);
 }
 
