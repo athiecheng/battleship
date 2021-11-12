@@ -6,7 +6,9 @@ function Home(props){
     return(
         <div className="home">
             <div class="container">
+                <div class="mt-5">
                 <h1>Home</h1>
+                </div>
             </div>
             <div>
                 <Link class = "nav-link" to = "/play/normal-play">

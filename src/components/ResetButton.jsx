@@ -14,7 +14,7 @@ function ResetButton(props){
                     type: 'resetButton',
                 }
             )
-            }>
+            } type="button" class="mt-3 btn btn-info btn-lg">
                 {text}
         </button>
         </div>
