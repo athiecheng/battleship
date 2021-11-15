@@ -12,7 +12,7 @@ export default function Board() {
     //     ['X','','0'],
     // ])
 
-    
+    let winningpharse = null
     const playerBoardComponent = [];
     for (let i = 0; i < boardState.robotMap.length; i++) {
         let row = boardState.robotMap[i];
@@ -20,10 +20,14 @@ export default function Board() {
             playerBoardComponent.push((<Square2 symbol={boardState.robotMap[i][j]} x={i} y={j} />))
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
+        if (boardState.human_shipleft === 0){
+            winningpharse = "congraduation, you won!"
+        }
     }
     return (
         <div className = "play">
             <h1>{boardState.blackBox}</h1>
+            {winningpharse}
                 <div id="board">
             {playerBoardComponent}
             </div>
