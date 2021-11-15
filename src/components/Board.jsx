@@ -15,27 +15,34 @@ export default function Board() {
                 <Route path = "/play" render={()=> {
                     return (
                         <>
-                        <h1>Game Play</h1>
-                        <button onClick={() => {
-                            setFreeplay(true)
-                            setNormal(false)
-                        }}>
-                            free play
-                        </button>
-                        <button onClick ={() => {
-                            setNormal(true)
-                            setFreeplay(false)
-                            dispatch({type: "Normalplay"}) 
-                            
-                        }}>
-                            normal play
-                        </button>
-                        <div>
+                        <h1 class = "mt-5">Game Play</h1>
+                        <div class = "row mt-3 justify-content-center">
+                            <div class="col-md-2 ">
+                                <button onClick={() => {
+                                    setFreeplay(true)
+                                    setNormal(false)
+                                }} type="button" class="btn btn-outline-primary">
+                                    free play
+                                </button>
+                            </div>
+                            <div class="col-md-2 ">
+                                <button onClick ={() => {
+                                    setNormal(true)
+                                    setFreeplay(false)
+                                    dispatch({type: "Normalplay"}) 
+                                    
+                                }} type="button" class="btn btn-outline-primary">
+                                    normal play
+                                </button>
+                            </div>
+                            <div class = "d-flex justify-content-center">
                             {showFreeplay? <Freeplay /> :null}
-                        </div>
-                        <div>
+                            </div>
+                            <div>
                             {showNormal? <Normalplay /> : null}
+                            </div>
                         </div>
+                        
                     </>
                     )
                 }} />

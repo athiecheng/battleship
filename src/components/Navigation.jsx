@@ -4,14 +4,14 @@ import {Link, withRouter } from "react-router-dom";
 function Navigation(props){
     return (
         <div className = "navigation">
-            <nav class = "navbar">
+            <nav class = "navbar navbar-expand-lg navbar-light bg-light">
                 <div class = "container">
                     <Link class = "navbar-brand" to = "/">
-                        React Multi-Page Website
+                        Battleship
                     </Link>
 
-                    <div>
-                        <ul class = "navbar-nav">
+                    <div class="collapse navbar-collapse">
+                        <ul class = "navbar-nav mr-auto">
                             <li
                             class = {`nav-item ${
                                 props.location.pathname === "/" ? "active" : ""

@@ -41,18 +41,22 @@ export default function Board() {
             
             <h1>{boardState.blackBox}</h1>
             {winningconponent}
-            <div id="board">
-            {playerBoardComponent}
-            {boardState.human_shipleft +"humanshipleft"}
+            <div class = "container-fluid">
+                <div class = "row mt-5">
+                    <div id="board" class = "col-md-6 col-sm-6 justify-content-center">
+                    {playerBoardComponent}
+                    {boardState.human_shipleft +"humanshipleft"}
+                    </div>
+
+                    <div id = "board" class = "col-md-6 col-sm-6 justify-content-center">
+                    {robotBoardComponent}
+                    {boardState.robot_shipleft + "robotshipleft"}
+                    </div>
+                </div>
+                <ResetButton text = "reset" />
             </div>
-            <h2>divide the two</h2>
-            <PlayButton text = "play game" />
-            <div id = "board" >
-            {robotBoardComponent}
             
-            {boardState.robot_shipleft + "robotshipleft"}
-            </div>
-            <ResetButton text = "reset" />
+            
          
         </div>
     )

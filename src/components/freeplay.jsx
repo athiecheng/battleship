@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Square2 } from "./Square2"
 import './Board.css'
 import { useSelector } from 'react-redux';
+import  ResetButton  from './ResetButton';
 
 export default function Board() {
     const boardState = useSelector((state) => state.game)
@@ -25,12 +26,14 @@ export default function Board() {
         }
     }
     return (
-        <div className = "play">
+        <div class = "container">
             <h1>{boardState.blackBox}</h1>
-            {winningpharse}
-                <div id="board">
-            {playerBoardComponent}
+            <div class = "row mt-5">
+                <div id="board" class= "col-md-6 col-sm-6 justify-content-center">
+                {playerBoardComponent}
+                </div>
             </div>
+            <ResetButton text = "reset" />
         </div>
     )
 }
