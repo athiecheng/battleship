@@ -14,7 +14,6 @@ export default function Board() {
         let row = boardState.robotMap[i];
         for (let j = 0; j < row.length; j++) {
             playerBoardComponent.push((<Square2 symbol={boardState.robotMap[i][j]} x={i} y={j} />))
-            // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.robot_shipleft === 0){
             winningpharse = "Congraduation, you won!"

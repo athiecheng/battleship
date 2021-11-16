@@ -16,7 +16,6 @@ export default function Board() {
         let row = boardState.boxMap[i];
         for (let j = 0; j < row.length; j++) {
             playerBoardComponent.push((<Square symbol={boardState.boxMap[i][j]} x={i} y={j} />))
-            // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.robot_shipleft=== 0){
             winningconponent = "Congradulation! You win the game";
@@ -28,7 +27,6 @@ export default function Board() {
         let row = boardState.robotMap[i];
         for (let j = 0; j < row.length; j++) {
             robotBoardComponent.push((<Square2 symbol={boardState.robotMap[i][j]} x={i} y={j} />))
-            // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.human_shipleft=== 0){
             winningconponent = "Sorry, you lose, Robot win";
@@ -58,10 +56,7 @@ export default function Board() {
                     </div>
                 </div>
                 <ResetButton text = "reset" />
-            </div>
-            
-            
-         
+            </div> 
         </div>
     )
 }
