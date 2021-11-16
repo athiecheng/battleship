@@ -17,15 +17,17 @@ export default function Board() {
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.robot_shipleft === 0){
-            winningpharse = "congraduation, you won!"
+            winningpharse = "Congraduation, you won!"
         }
     }
     return (
         <div class = "container">
             <h1>{boardState.blackBox}</h1>
+            <div class = "display-2 text-danger">
             {winningpharse}
+            </div>
             <div class = "row mt-5">
-                <div id="board" class= "col--6 col-sm-6 justify-content-center">
+                <div id="board" class= "justify-content-center">
                 {playerBoardComponent}
                 </div>
             </div>

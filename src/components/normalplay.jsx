@@ -19,7 +19,7 @@ export default function Board() {
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.robot_shipleft=== 0){
-            winningconponent = "human win";
+            winningconponent = "Congradulation! You win the game";
         }
     }
     
@@ -31,7 +31,7 @@ export default function Board() {
             // boardComponent.push((<Square symbol={boardState[i][j]} onClick={setBoard} boardState={boardState} x={i} y={j}/>))
         }
         if (boardState.human_shipleft=== 0){
-            winningconponent = "robot win";
+            winningconponent = "Sorry, you lose, Robot win";
         }
     }
     
@@ -40,18 +40,20 @@ export default function Board() {
             
             <h1>{boardState.blackBox}</h1>
             {/* <div class="w-100 p-3" style="background-color: dark blue;"> */}
+            <div class = "display-2 text-danger">
             {winningconponent}
+            </div>
             {/* </div> */}
             <div class = "container-fluid">
                 <div class = "row mt-5">
                     <div id="board" class = "col-md-6 col-sm-6 justify-content-center">
                     {playerBoardComponent}
-                    {boardState.human_shipleft + " ships left"}
+                    
                     </div>
 
                     <div id = "board" class = "col-md-6 col-sm-6 justify-content-center">
                     {robotBoardComponent}
-                    {boardState.robot_shipleft + " ships left"}
+                    
                     
                     </div>
                 </div>
