@@ -1,35 +1,3 @@
-import { Normalplay } from "../components";
-
-const defaultState = {
-    human_shipleft: 14,
-    robot_shipleft:14,
-    boxMap: [
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', '']
-    ],
-    robotMap: [
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', ''],
-        ['', '', '', '', '', '', '', '', '', '']
-    ],
-    normalPlay: true
-
-};
 
 function getRandomInt(max) {
     // min = Math.ceil(min);
@@ -40,7 +8,37 @@ function getRandomInt(max) {
 
 
 function generateGameBoard() {
-    const newstate = defaultState
+    
+    const newstate = {
+        human_shipleft: 14,
+        robot_shipleft:14,
+        boxMap: [
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', '']
+        ],
+        robotMap: [
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', ''],
+            ['', '', '', '', '', '', '', '', '', '']
+        ],
+        normalPlay: true
+    
+    };
     console.log("start" +newstate);
     for (let i = 2; i < 6; i++) {
         let allclear = false;
@@ -151,18 +149,7 @@ export default function gameReducer(state, action) {
         return generateGameBoard()
     }
 
-    // if (action.type === 'playGame'){
-
-    //     return generateGameBoard()
-    // }
-
-    // if(action.type === 'normalPlay') {
-    //     generateGameBoard(boxMap)
-    //     return generateGameBoard(robotMap)
-    // }
-   
     
-    // if (action.type === 'Normalplay'){
         if (action.type === 'boardClick') {
             const value = state.robotMap[action.x][action.y];
             if (value === 'X' || value ===''){
@@ -193,8 +180,7 @@ export default function gameReducer(state, action) {
             return { ...state };
         }
     // }
-    
-    if (action.type === 'resetButton') {
+    if (action.type === 'resetButton' || action.type === 'Normalplay'|| action.type === 'freeplay' ) {
         for (var i = 0; i < state.boxMap.length; i++) {
             for( var j = 0; j < state.boxMap[0].length; j++){
                 state.boxMap[i][j] = ''
@@ -207,5 +193,7 @@ export default function gameReducer(state, action) {
         }
         return generateGameBoard()
     }
+
+    
     return state; 
 }

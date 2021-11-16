@@ -21,6 +21,7 @@ export default function Board() {
                                 <button onClick={() => {
                                     setFreeplay(true)
                                     setNormal(false)
+                                    dispatch({type: "freeplay"}) 
                                 }} type="button" class="btn btn-outline-primary">
                                     free play
                                 </button>

@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 export default function Board() {
     const boardState = useSelector((state) => state.game)
     boardState.normalPlay = true
-    // const robotBoardState = useSelector((state) => state.robot)
 
     const playerBoardComponent = [];
     let winningconponent = null
@@ -40,17 +39,20 @@ export default function Board() {
         <div className = "play">
             
             <h1>{boardState.blackBox}</h1>
+            {/* <div class="w-100 p-3" style="background-color: dark blue;"> */}
             {winningconponent}
+            {/* </div> */}
             <div class = "container-fluid">
                 <div class = "row mt-5">
                     <div id="board" class = "col-md-6 col-sm-6 justify-content-center">
                     {playerBoardComponent}
-                    {boardState.human_shipleft +"humanshipleft"}
+                    {boardState.human_shipleft + " ships left"}
                     </div>
 
                     <div id = "board" class = "col-md-6 col-sm-6 justify-content-center">
                     {robotBoardComponent}
-                    {boardState.robot_shipleft + "robotshipleft"}
+                    {boardState.robot_shipleft + " ships left"}
+                    
                     </div>
                 </div>
                 <ResetButton text = "reset" />
