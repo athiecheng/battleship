@@ -20,6 +20,9 @@ function Home(props){
                     free play
                 </Link>
             </div>
+            <div class="mt-5">
+                <p>Designed by Cheng Cheng and Ziwei Xia</p>
+            </div>
 
         </div>
     )
